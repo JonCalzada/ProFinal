@@ -1,7 +1,27 @@
+from tkinter import *
+
+raiz=Tk()
+
+raiz.title("Ventana de pruebas")
+raiz.resizable(True,False)
+#raiz.iconbitmap("gato.ico")
+raiz.geometry("650x350")
+#raiz.config(bg="blue")
+miFrame=Frame()
+raiz.mainloop()
+
 """
 Por el momento, el programa sólo hará la parte del 
 depósito. Al final se juntará todo
 """
+
+
+
+
+
+
+
+
 
 class memoria:
     """En el método añade se planea que reciba la información
