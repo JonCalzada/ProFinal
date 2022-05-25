@@ -1,0 +1,33 @@
+CREATE DATABASE CoordinadorTransacciones
+
+USE CoordinadorTransacciones
+GO
+
+CREATE TABLE Banco(
+	ClaveBancaria BIGINT NOT NULL,
+	Nombre VARCHAR(50) NOT NULL,
+	Direccion VARCHAR(50) NOT NULL,
+
+	CONSTRAINT Sucursal_PK PRIMARY KEY (ClaveBancaria)
+)
+
+CREATE TABLE Cliente(
+	NoCuenta BIGINT NOT NULL,
+	Nombre VARCHAR(50) NOT NULL,
+	Direccion VARCHAR(50) NOT NULL,
+	ClaveBancaria BIGINT NOT NULL,
+	Saldo BIGINT NOT NULL,
+
+	CONSTRAINT Cuenta_PK PRIMARY KEY (NoCuenta),
+	CONSTRAINT Banco_FK FOREIGN KEY (ClaveBancaria) REFERENCES Banco (ClaveBancaria)
+)
+
+CREATE TABLE Operacion(
+	ID BIGINT NOT NULL,
+	Transaccion VARCHAR(50) NOT NULL,
+	Fecha BIGINT NOT NULL,
+	NoCuenta BIGINT NOT NULL,
+
+	CONSTRAINT ID_PK PRIMARY KEY (ID),
+	CONSTRAINT Cliente_FK FOREIGN KEY (NoCuenta) REFERENCES Cliente (NoCuenta)
+)
