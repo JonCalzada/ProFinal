@@ -6,8 +6,11 @@ raiz.title("Ventana de pruebas")
 raiz.resizable(True,False)
 miFrame=Frame(raiz, width=500 ,height=400)
 miFrame.pack()
-miLabel=Label(miFrame, text="Banco de Los chicos que lloran")
+miLabel=Label(miFrame, text="Banco de Los chicos que lloran",font=(22))
 miLabel.pack()
+cuadroText=Entry(raiz)
+cuadroText.pack()
+#miLabel.place()
 #raiz.iconbitmap("gato.ico")
 raiz.geometry("650x350")
 #raiz.config(bg="blue")
@@ -31,6 +34,8 @@ class memoria:
     """En el método añade se planea que reciba la información
     que se genere al realizar un deposito o un retiro"""
     def añade(self,cantidadTotal):
+        
+        
         transaccion = open("Transacciones.txt","a")
         transaccion.write("El monto final es $"+str(cantidadTotal)+" \n")
         transaccion.close()
